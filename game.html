@@ -66,8 +66,9 @@
 <div class="upgrade-info">70 pagina's</div>
 <div class="separator"></div>
 
-<button onclick="koopAutoClicker()">Koop AutoClicker (Kosten: 100 pagina's)</button>
-<div class="auto-click-info">100 pagina's</div>
+<button onclick="koopAutoClicker()"> pen </button>
+<div class="auto-click-info">150 pagina's</div>
+  <div> Klikt elke 2 seconden!(automatisch)</div>
 <div class="separator"></div>
 
 <div>2024 TAV BRANDS COPYRIGHT</div>
@@ -76,7 +77,7 @@
     let teller = 0;
     let plusWaarde = 1;
     let aantalAutoClickers = 0;
-    let autoClickCost = 100;
+    let autoClickCost = 150;
 
     function verhoogTeller() {
         teller += plusWaarde;  // Verhoogt de teller met de huidige waarde van plusWaarde
@@ -98,7 +99,7 @@
             updateTellerDisplay();
             startAutoClicker();
         } else {
-            alert("Niet genoeg pagina's om een AutoClicker te kopen!");
+            
         }
     }
 
@@ -107,7 +108,7 @@
         setInterval(() => {
             teller += aantalAutoClickers;  // Verhoog de teller met het aantal auto-clickers
             updateTellerDisplay();
-        }, 1000);  // Interval van 1000 ms (1 seconde)
+        }, 2000);  // Interval van 2000 ms (2 seconde)
     }
 
     function updateTellerDisplay() {
