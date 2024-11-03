@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TAV Books</title>
 <style>
-  body {background-color: green;
+  body {
+    background-color: green;
     font-family: Arial, sans-serif;
   }
   header {
@@ -47,39 +49,74 @@
 </a>
 <div class="separator"></div>
 
-    <title>Teller Verhogen</title>
-
-    <header>TAV clicker</header>
+<header>TAV clicker</header>
 <div class="separator"></div>
 
-    <div id="teller" style="font-size: 2em";>0 pagina's</div>
-    <button onclick="verhoogTeller()" style="background: none; border: none; padding: 0;">
+<div id="teller" style="font-size: 2em;">0 pagina's</div>
+<button onclick="verhoogTeller()" style="background: none; border: none; padding: 0;">
     <img src="Remove background project.png" alt="klik hier">
 </button>
-	<div> Klik op het boek!</div>
-	<div class="separator"></div>
-	<header>upgrades</header>
-	<div class="separator"></div>
-  <button onclick="zinx2()"> kliks +1</button>
-<div> 70 pagina's</div>
-	<div class="separator"></div>
-	<div> 2024 TAV BRANDS COPYRIGHT</div>
-    <script>
-        let teller = 0;
-       let plusWaarde = 1;
-        function verhoogTeller() {
-            teller +=plusWaarde ;  // Verhoogt de teller met één
-            document.getElementById('teller').innerText = teller+" pagina's";  // Update de tekst op de pagina
-	}
-          function zinx2() {
-            if (teller > 69) {
-				  plusWaarde +=1;
-                  teller = teller-70;
-			} else {
-        		}
-	  }
-    </script>
+<div> Klik op het boek!</div>
+<div class="separator"></div>
 
+<header>upgrades</header>
+<div class="separator"></div>
+
+<button onclick="zinx2()">klik +1 (Kosten: 70 pagina's)</button>
+<div class="upgrade-info">70 pagina's</div>
+<div class="separator"></div>
+
+<button onclick="koopAutoClicker()">Koop AutoClicker (Kosten: 100 pagina's)</button>
+<div class="auto-click-info">100 pagina's</div>
+<div class="separator"></div>
+
+<div>2024 TAV BRANDS COPYRIGHT</div>
+
+<script>
+    let teller = 0;
+    let plusWaarde = 1;
+    let aantalAutoClickers = 0;
+    let autoClickCost = 100;
+
+    function verhoogTeller() {
+        teller += plusWaarde;  // Verhoogt de teller met de huidige waarde van plusWaarde
+        updateTellerDisplay();
+    }
+
+    function zinx2() {
+        if (teller >= 70) {
+            plusWaarde += 1;
+            teller -= 70;
+            updateTellerDisplay();
+        }
+    }
+
+    function koopAutoClicker() {
+        if (teller >= autoClickCost) {
+            teller -= autoClickCost;
+            aantalAutoClickers++;
+            updateTellerDisplay();
+            startAutoClicker();
+        } else {
+            alert("Niet genoeg pagina's om een AutoClicker te kopen!");
+        }
+    }
+
+    function startAutoClicker() {
+        // Auto-clicker die automatisch elke seconde de teller verhoogt
+        setInterval(() => {
+            teller += aantalAutoClickers;  // Verhoog de teller met het aantal auto-clickers
+            updateTellerDisplay();
+        }, 1000);  // Interval van 1000 ms (1 seconde)
+    }
+
+    function updateTellerDisplay() {
+        document.getElementById('teller').innerText = teller + " pagina's";
+    }
+</script>
+
+</body>
 </html>
+
 
 
