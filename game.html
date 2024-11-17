@@ -117,15 +117,18 @@
       let randomInt = 0;
 
       setInterval(() => {randomInt = Math.floor(Math.random() * max); 
-        
-      
             switch (randomInt) {
-              case 1:
+              case 0:
                 document.getElementById('nieuwsbericht').innerText =  " Goed bezig!";
-              case 2:
+                break
+              case 1:
                 document.getElementById('nieuwsbericht').innerText =  "Mensen vinden je boeken leuk!";
+                break
+              case 2:
+                document.getElementById('nieuwsbericht').innerText =  "Blablabal!";
+                break
               default:
-                document.getElementById('nieuwsbericht').innerText =  randomInt + " test 2";
+                document.getElementById('nieuwsbericht').innerText =  randomInt + " test 3";
         }
     }, 5000);  // Interval van 5000 ms (5 seconde)
         
