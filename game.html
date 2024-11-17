@@ -51,8 +51,7 @@
 
 <header>TAV clicker</header>
 <div class="separator"></div>
-<div id= "nieuwsbericht"> tekst 1  </div> 
- nieuwsbericht()
+<div id= "nieuwsbericht"> tekst 1  </div>
 
 <div id="teller" style="font-size: 2em;">0 pagina's</div>
 <button onclick="verhoogTeller()" style="background: none; border: none; padding: 0;">
@@ -120,7 +119,7 @@
              document.getElementById('nieuwsbericht').innerText =  " goed bezig";
         }, 5000);  // Interval van 5000 ms (5 seconde)
     }
-
+    nieuwsbericht()
     function updateTellerDisplay() {
         document.getElementById('teller').innerText = teller + " pagina's";
     }
