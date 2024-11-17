@@ -113,7 +113,7 @@
         }, 2000);  // Interval van 2000 ms (2 seconde)
     }
     function nieuwsbericht() {
-      let max = 2;
+      let max = 4;
       let randomInt = 0;
 
       setInterval(() => {randomInt = Math.floor(Math.random() * max); 
@@ -125,7 +125,13 @@
                 document.getElementById('nieuwsbericht').innerText =  "Mensen vinden je boeken leuk!";
                 break
               case 2:
-                document.getElementById('nieuwsbericht').innerText =  "Blablabal!";
+                document.getElementById('nieuwsbericht').innerText =  "Door jouw boeken wil iedereen leren lezen.";
+                break
+                 case 3:
+                document.getElementById('nieuwsbericht').innerText =  "De koning leest je boeken!";
+                break
+                  case 4:
+                document.getElementById('nieuwsbericht').innerText =  "Een filmster geeft toe dat dit het eerste boek is dat hij heeft gelezen!";
                 break
               default:
                 document.getElementById('nieuwsbericht').innerText =  randomInt + " test 3";
