@@ -113,7 +113,7 @@
         }, 2000);  // Interval van 2000 ms (2 seconde)
     }
     function nieuwsbericht() {
-      let max = 5;
+      let max = 2;
       let randomInt = 1;
 
       setInterval(() => {randomInt = Math.floor(Math.random() * max); 
@@ -126,8 +126,8 @@
               case 2:
                 document.getElementById('nieuwsbericht').innerText =  "Mesen vinden je boeken leuk!";
                 break;
-            default:
-              // Code die wordt uitgevoerd als geen van de cases overeenkomt
+              default:
+                document.getElementById('nieuwsbericht').innerText =  randomInt + " test";
         }
 
         
