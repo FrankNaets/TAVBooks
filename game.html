@@ -113,14 +113,24 @@
         }, 2000);  // Interval van 2000 ms (2 seconde)
     }
     function nieuwsbericht() {
-        // Auto-clicker die automatisch elke seconde de teller verhoogt
-      let max = 10;
+      let max = 5;
       let randomInt = 1;
-      setInterval(() => {
-             
-            randomInt = Math.floor(Math.random() * max);
-             document.getElementById('nieuwsbericht').innerText =  randomInt+ "goed bezig";
+
+      setInterval(() => {randomInt = Math.floor(Math.random() * max); 
         }, 5000);  // Interval van 5000 ms (5 seconde)
+      
+            switch (randomInt) {
+              case 1:
+                document.getElementById('nieuwsbericht').innerText =  randomInt+ "goed bezig";
+                break;
+              case 2:
+                document.getElementById('nieuwsbericht').innerText =  randomInt+ "goed bezig";
+                break;
+            default:
+              // Code die wordt uitgevoerd als geen van de cases overeenkomt
+        }
+
+        
     }
     nieuwsbericht()
     function updateTellerDisplay() {
