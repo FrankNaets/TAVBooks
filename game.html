@@ -114,9 +114,12 @@
     }
     function nieuwsbericht() {
         // Auto-clicker die automatisch elke seconde de teller verhoogt
-        setInterval(() => {
-             // 
-             document.getElementById('nieuwsbericht').innerText =  " goed bezig";
+      let max = 10;
+      let randomInt = 1;
+      setInterval(() => {
+             
+            randomInt = Math.floor(Math.random() * max);
+             document.getElementById('nieuwsbericht').innerText =  randomInt+ "goed bezig";
         }, 5000);  // Interval van 5000 ms (5 seconde)
     }
     nieuwsbericht()
