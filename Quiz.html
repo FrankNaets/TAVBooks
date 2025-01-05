@@ -48,11 +48,69 @@
 <header>TAV</header>
 </a>
 <div class="separator"></div>
-  <header>Het verhaal van Tristan</header>
+  <header>Speel de TAV quiz!</header>
    <div class="separator"></div>
-   <div class="separator"></div>
+
+  <p id="question">Vul het juiste woord in</p>
+    <input type="text" id="userInput" placeholder="Voer een antwoord in">
+    <button onclick="checkText()">Controleer</button>
+
+    <div id="feedback" class="feedback"></div>
+   
     <div class="separator"></div>
 <div> 2024 TAV BRANDS Copyright </div>
+
+  <script>
+        // Lijst met vragen en juiste antwoorden
+        const questions = [
+            { question: "Waneer is TAV opgericht? (TIP:vul een jaartal in zoals 2016)", answer: "2023" },
+            { question: "Wat is de link naar deze website? (TIP:let op hoofdletters en spatie's)", answer: "FrankNaets.github.io/TAVBooks" },
+            { question: "Welk TAV merk heeft deze website gemaakt (TIP:geen hoofdletters en geen spatie's)", answer: "tavcode" }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function updateQuestion() {
+            const questionElement = document.getElementById('question');
+            questionElement.textContent = questions[currentQuestionIndex].question;
+        }
+
+        function checkText() {
+            const userInput = document.getElementById('userInput').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+
+            if (!userInput) {
+                feedback.textContent = "Vul alstublieft een woord in.";
+                feedback.style.color = "red";
+                return;
+            }
+
+            if (userInput === questions[currentQuestionIndex].answer) {
+                feedback.textContent = "Gefeliciteerd! Dat is correct!";
+                feedback.style.color = "green";
+
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    setTimeout(() => {
+                        feedback.textContent = "";
+                        document.getElementById('userInput').value = "";
+                        updateQuestion();
+                    }, 1000);
+                } else {
+                    feedback.textContent = "Je hebt alle vragen beantwoord! Goed gedaan!";
+                }
+            } else {
+                feedback.textContent = "Onjuist! Probeer opnieuw.";
+                feedback.style.color = "orange";
+            }
+        }
+
+        // Initialiseer de eerste vraag
+        updateQuestion();
+    </script>
+</body>
+</html>
+
   
 </body>
 </html>
