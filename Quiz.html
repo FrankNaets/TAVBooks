@@ -64,8 +64,8 @@
         // Lijst met vragen en juiste antwoorden
         const questions = [
             { question: "Waneer is TAV opgericht? (TIP:vul een jaartal in zoals 2016)", answer: "2023" },
-            { question: "Wat is de link naar deze website? (TIP:let op hoofdletters en spatie's)", answer: "franknaets.github.io/tavbooks" },
-            { question: "Welk TAV merk heeft deze website gemaakt (TIP:geen hoofdletters en geen spatie's)", answer: "tavcode" }
+            { question: "Wat is de link naar deze website? (TIP:let op leestekens en spatie's)", answer: "franknaets.github.io/tavbooks" },
+            { question: "Welk TAV merk heeft deze website gemaakt (TIP:geen spatie's)", answer: "tavcode" }
         ];
 
         let currentQuestionIndex = 0;
@@ -80,7 +80,7 @@
             const feedback = document.getElementById('feedback');
 
             if (!userInput) {
-                feedback.textContent = "Vul alstublieft een woord in.";
+                feedback.textContent = "Vul alstublieft een antwoord in.";
                 feedback.style.color = "red";
                 return;
             }
