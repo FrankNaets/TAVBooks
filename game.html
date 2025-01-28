@@ -97,7 +97,7 @@
     function koopAutoClicker() {
         if (teller >= autoClickCost) {
             teller -= autoClickCost;
-            aantalAutoClickers++;
+            aantalAutoClickers=aantalAutoClickers+1;
             updateTellerDisplay();
             startAutoClicker();
         } else {
@@ -108,9 +108,9 @@
     function startAutoClicker() {
         // Auto-clicker die automatisch elke seconde de teller verhoogt
         setInterval(() => {
-            teller += aantalAutoClickers;  // Verhoog de teller met het aantal auto-clickers
+            teller = teller + 1;  // Verhoog de teller met het aantal auto-clickers
             updateTellerDisplay();
-        }, 2000);  // Interval van 2000 ms (2 seconde)
+        }, 2000/aantalAutoClickers);  // Interval van 2000 ms (2 seconde)
     }
     function nieuwsbericht() {
       let max = 5;
