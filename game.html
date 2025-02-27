@@ -90,7 +90,10 @@ let plusWaarde = 1;
 let aantalAutoClickers = 0;
 let autoClickCost = 150;
 let autoClickerInterval = null;  // Houdt bij of de autoclicker al loopt
-
+let autoClickCosttyp = 3000;
+let autoClickerIntervaltyp = null;  // Houdt bij of de typmachine al loopt
+let aantalAutoClickerstyp = 0;
+  
 function verhoogTeller() {
     teller += plusWaarde;
     updateTellerDisplay();
@@ -122,6 +125,24 @@ function startAutoClicker() {
     }
 }
 
+  function koopAutoClickertyp() {
+    if (teller >= autoClickCosttyp) {
+        teller -= autoClickCosttyp;
+        aantalAutoClickerstyp += 1;
+        updateTellerDisplay();
+        startAutoClickertyp();
+    }
+}
+
+function startAutoClickertyp() {
+    if (autoClickerIntervaltyp === null) {  // Voorkomt meerdere setInterval-loops
+        autoClickerIntervaltyp = setInterval(() => {
+            teller += aantalAutoClickerstyp;
+            updateTellerDisplay();
+        }, 1000);
+    }
+}
+  
 function nieuwsbericht() {
     let max = 5;
     let randomInt = 0;
