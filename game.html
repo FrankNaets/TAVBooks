@@ -79,81 +79,83 @@
 
 <button onclick="koopAutoClicker()"> pen </button>
 <div class="auto-click-info">150 pagina's</div>
-  <div> Klikt elke 2 seconden!(automatisch)</div>
+  <div> Klikt elke 3 seconden!(automatisch)</div>
 <div class="separator"></div>
 
 <div>2024-2025 TAV BRANDS COPYRIGHT</div>
 
 <script>
-    let teller = 0;
-    let plusWaarde = 1;
-    let aantalAutoClickers = 0;
-    let autoClickCost = 150;
+let teller = 0;
+let plusWaarde = 1;
+let aantalAutoClickers = 0;
+let autoClickCost = 150;
+let autoClickerInterval = null;  // Houdt bij of de autoclicker al loopt
 
-    function verhoogTeller() {
-        teller += plusWaarde;  // Verhoogt de teller met de huidige waarde van plusWaarde
+function verhoogTeller() {
+    teller += plusWaarde;
+    updateTellerDisplay();
+}
+
+function zinx2() {
+    if (teller >= 70) {
+        plusWaarde += 1;
+        teller -= 70;
         updateTellerDisplay();
     }
+}
 
-    function zinx2() {
-        if (teller >= 70) {
-            plusWaarde += 1;
-            teller -= 70;
+function koopAutoClicker() {
+    if (teller >= autoClickCost) {
+        teller -= autoClickCost;
+        aantalAutoClickers += 1;
+        updateTellerDisplay();
+        startAutoClicker();
+    }
+}
+
+function startAutoClicker() {
+    if (autoClickerInterval === null) {  // Voorkomt meerdere setInterval-loops
+        autoClickerInterval = setInterval(() => {
+            teller += aantalAutoClickers;
             updateTellerDisplay();
-        }
+        }, 3000);
     }
+}
 
-    function koopAutoClicker() {
-        if (teller >= autoClickCost) {
-            teller -= autoClickCost;
-            aantalAutoClickers=aantalAutoClickers+1;
-            updateTellerDisplay();
-            startAutoClicker();
-        } else {
-            
-        }
-    }
+function nieuwsbericht() {
+    let max = 5;
+    let randomInt = 0;
 
-    function startAutoClicker() {
-        // Auto-clicker die automatisch elke seconde de teller verhoogt
-        setInterval(() => {
-            teller = teller + 1;  // Verhoog de teller met het aantal auto-clickers
-            updateTellerDisplay();
-        }, round(2000 / aantalAutoClickers));  // Interval van 2000 ms (2 seconde)
-    }
-    function nieuwsbericht() {
-      let max = 5;
-      let randomInt = 0;
-
-      setInterval(() => {randomInt = Math.floor(Math.random() * max); 
-            switch (randomInt) {
-              case 0:
-                document.getElementById('nieuwsbericht').innerText =  " Goed bezig!";
-                break
-              case 1:
-                document.getElementById('nieuwsbericht').innerText =  "Mensen vinden je boeken leuk!";
-                break
-              case 2:
-                document.getElementById('nieuwsbericht').innerText =  "Door jouw boeken wil iedereen leren lezen.";
-                break
-                 case 3:
-                document.getElementById('nieuwsbericht').innerText =  "De koning leest je boeken!";
-                break
-                  case 4:
-                document.getElementById('nieuwsbericht').innerText =  "Een filmster geeft toe dat dit het eerste boek is dat hij heeft gelezen!";
-                break
-              default:
-                document.getElementById('nieuwsbericht').innerText =  randomInt + " test 3";
+    setInterval(() => {
+        randomInt = Math.floor(Math.random() * max); 
+        switch (randomInt) {
+            case 0:
+                document.getElementById('nieuwsbericht').innerText = "Goed bezig!";
+                break;
+            case 1:
+                document.getElementById('nieuwsbericht').innerText = "Mensen vinden je boeken leuk!";
+                break;
+            case 2:
+                document.getElementById('nieuwsbericht').innerText = "Door jouw boeken wil iedereen leren lezen.";
+                break;
+            case 3:
+                document.getElementById('nieuwsbericht').innerText = "De koning leest je boeken!";
+                break;
+            case 4:
+                document.getElementById('nieuwsbericht').innerText = "Een filmster geeft toe dat dit het eerste boek is dat hij heeft gelezen!";
+                break;
+            default:
+                document.getElementById('nieuwsbericht').innerText = randomInt + " test 3";
         }
-    }, 5000);  // Interval van 5000 ms (5 seconde)
-        
-    }
-    nieuwsbericht()
-  
-    //voor de woorden achter teller
-    function updateTellerDisplay() {
-        document.getElementById('teller').innerText = teller + " pagina's";
-    }
+    }, 5000);  // Interval van 5000 ms (5 sec)
+}
+
+nieuwsbericht();
+
+function updateTellerDisplay() {
+    document.getElementById('teller').innerText = teller + " pagina's";
+}
+
 </script>
 
 </body>
