@@ -59,10 +59,27 @@
     <div class="separator"></div>
   
    <div class="separator"></div>
-  <div> geef een presentatie over TAVCARS Hier onder vind je de link naar  de presentatie </div>
-  <a href="TAV Cars (1).pdf">
-<div>presentatie TAV Cars</div>
-</a>
+  <div> Maak je zelf een website? Dan kan je de TAV website in je eigen website zetten. Je klikt op de knop om de tekst te kopieëren en dan ga je naar je eigen website en zet je de code er in met ctrl+v.</div>
+  <div class="separator"></div>
+  <input type="text" value="<iframe src="https://franknaets.github.io/TAVBooks/" width="670" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>" id="myInput">
+<button onclick="myFunction()">Kopieër text</button>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+  
+  // Alert the copied text
+  alert("Text gekopieërd: " + copyText.value);
+}
+</script>
     <div class="separator"></div>
 <div> 2024-2025 TAV BRANDS Copyright </div>
    <div class="separator"></div>
