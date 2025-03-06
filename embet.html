@@ -102,7 +102,7 @@
 }
 
 /* Style the input field */
-input[type=text] {
+.special {
   width: 100%;
   border-radius: 3px;
   border: none;
@@ -139,7 +139,7 @@ input[type=text] {
    <div class="separator"></div>
   <div> Maak je zelf een website? Dan kan je de TAV website in je eigen website zetten. Je klikt op de knop om de tekst te kopieëren en dan ga je naar je eigen website en zet je de code er in met ctrl+v.</div>
   <div class="separator"></div>
-  <input type="text" value="<iframe src="https://franknaets.github.io/TAVBooks/" width="670" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>" id="myInput">
+  <input type="text" value='<iframe src="https://franknaets.github.io/TAVBooks/" width="670" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>' id="myInput">
 <button onclick="myFunction()">Kopieër text</button>
    <div class="separator"></div>
   <div class="container">
@@ -150,7 +150,7 @@ input[type=text] {
       <span class="dot" style="background:#5AC05A;"></span>
     </div>
     <div class="column middle">
-      <input type="text" value="MijnWebsite.com">
+      <input class="special" type="text" value="MijnWebsite.com">
     </div>
     <div class="column right">
       <div style="float:right">
