@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art op de TAV website!</title>
+    <style>
+        body {
+            background-color: green;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+          back
+        }
+        #toolbar {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        #canvas {
+            display: grid;
+            grid-template-columns: repeat(16, 20px);
+            grid-template-rows: repeat(16, 20px);
+            gap: 1px;
+            margin-top: 20px;
+            border: 1px solid black;
+        }
+        .pixel {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pixel Art</h1>
+    <div id="toolbar">
+        <input type="color" id="colorPicker" value="#000000">
+        <button id="eraser">Wissen</button>
+        <button id="clearCanvas">Leegmaken</button>
+    </div>
+    <div id="canvas"></div>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const colorPicker = document.getElementById("colorPicker");
+        const eraser = document.getElementById("eraser");
+        const clearCanvas = document.getElementById("clearCanvas");
+        let isErasing = false;
+
+        eraser.addEventListener("click", () => {
+            isErasing = !isErasing;
+            eraser.textContent = isErasing ? "Tekenen" : "Wissen";
+        });
+
+        clearCanvas.addEventListener("click", () => {
+            document.querySelectorAll(".pixel").forEach(pixel => {
+                pixel.style.backgroundColor = "white";
+            });
+        });
+
+        for (let i = 0; i < 256; i++) {
+            const pixel = document.createElement("div");
+            pixel.classList.add("pixel");
+            pixel.addEventListener("mousedown", () => {
+                pixel.style.backgroundColor = isErasing ? "white" : colorPicker.value;
+            });
+            canvas.appendChild(pixel);
+        }
+    </script>
+</body>
+</html>
 
