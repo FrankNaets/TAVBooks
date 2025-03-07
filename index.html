@@ -134,15 +134,25 @@ nieuwste boeken, kleine verhaaltjes, een game en nog veel meer.
   <a href="linkoverzicht.html">
    <p>sitemap</p>
    </a>
-  <button onclick="myFunctionT()">Verander achtergrondkleur</button>
+  
+  <button onclick="nextback()">
+  action
+</button>
+
    <div class="separator"></div>
 <div> 2024-2025 TAV BRANDS Copyright </div>
   
   <script>
-function myFunctionT() {
-   var element = document.body;
-   element.classList.toggle("background-color1");
+let background = 0;
+
+  
+function nextback() {
+    background++;
+    background = background % 5;
+    console.log(background)
+    document.body.className = "background-color" + background;
 }
+
 </script>
   
 </body>
