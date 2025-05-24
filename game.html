@@ -72,8 +72,9 @@
 <header>upgrades</header>
 <div class="separator"></div>
 
-<button onclick="zinx2()">klik +1 </button>
+<button onclick="zinx2()"> inktvulling </button>
 <div class="upgrade-info">70 pagina's</div>
+  <div></div>
   <div class="separator"></div>
 
 
@@ -87,6 +88,11 @@
   <div> Klikt elke 3 kwart van een seconde!(automatisch)</div>
 <div class="separator"></div>
 
+  <button onclick="koopAutoClickerprint()"> printer </button>
+<div class="auto-click-info">5000 pagina's</div>
+  <div> Klikt elke halve seconde!(automatisch)</div>
+<div class="separator"></div>
+
 <div>2024-2025 TAV BRANDS COPYRIGHT</div>
 
 <script>
@@ -98,6 +104,9 @@ let autoClickerInterval = null;  // Houdt bij of de autoclicker al loopt
 let autoClickCosttyp = 3000;
 let autoClickerIntervaltyp = null;  // Houdt bij of de typmachine al loopt
 let aantalAutoClickerstyp = 0;
+let autoClickerIntervalprint = null;  // Houdt bij of de printer al loopt
+let aantalAutoClickersprint = 0;  
+let autoClickCostprint = 5000;  
   
 function verhoogTeller() {
     teller += plusWaarde;
@@ -145,6 +154,24 @@ function startAutoClickertyp() {
             teller += aantalAutoClickerstyp;
             updateTellerDisplay();
         }, 750);
+    }
+}
+
+  function koopAutoClickerprint() {
+    if (teller >= autoClickCostprint) {
+        teller -= autoClickCostprint;
+        aantalAutoClickersprint += 1;
+        updateTellerDisplay();
+        startAutoClickerprint();
+    }
+}
+
+function startAutoClickerprint() {
+    if (autoClickerIntervalprint === null) {  // Voorkomt meerdere setInterval-loops
+        autoClickerIntervalprint = setInterval(() => {
+            teller += aantalAutoClickersprint;
+            updateTellerDisplay();
+        }, 500);
     }
 }
   
