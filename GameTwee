@@ -27,6 +27,11 @@ background-color: green
     background-color: #000;
     margin: 20px 0;
   }
+    header {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px 0;
+  }
 </style>
 </head>
 <body onload="startGame()">
@@ -153,7 +158,13 @@ function accelerate(n) {
 <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Spring</button>
 <p>Klik op de de "Spring" knop om te springen.</p>
 <p>Wat was je hoogste score?</p>
+<div class="separator" ></div>
+<a href="test">
+<header>TAV</header>
+</a>
+<div class="separator"></div>
 
 </body>
 </html>
+
 
