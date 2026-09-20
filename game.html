@@ -123,6 +123,7 @@ let aantalAutoClickerstyp = 0;
 let autoClickerIntervalprint = null;  // Houdt bij of de printer al loopt
 let aantalAutoClickersprint = 0;  
 let autoClickCostprint = 5000;  
+let Oudeteller = 0;
   
 function verhoogTeller() {
     teller += plusWaarde;
@@ -225,6 +226,19 @@ function updateTellerDisplay() {
     document.getElementById('teller').innerText = teller + " pagina's";
     document.getElementById('tellerboven').innerText = teller + " pagina's in TAV clicker";
 }
+
+function clicksPerSeconde() }
+   setInterval(() => {
+
+     Oudeteller = teller;
+     }, 3100);  // Interval van 3100 ms (3.1 sec)
+  }
+}
+
+clicksPerSeconde();
+
+  
+  
 
 </script>
 
